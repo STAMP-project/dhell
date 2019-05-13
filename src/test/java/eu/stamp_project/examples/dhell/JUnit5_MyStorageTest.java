@@ -1,14 +1,18 @@
 package eu.stamp_project.examples.dhell;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
 import java.io.File;
 import java.util.*;
 
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import eu.stamp_project.examples.dhell.MyStorage;
 
-@org.junit.runner.RunWith(com.googlecode.junittoolbox.ParallelRunner.class)
-public class MyStorageTest
+@Execution(value=ExecutionMode.CONCURRENT)
+public class JUnit5_MyStorageTest
 {
     // **********************************************************************
     // public

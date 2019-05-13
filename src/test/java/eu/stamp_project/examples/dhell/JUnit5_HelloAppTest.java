@@ -1,25 +1,26 @@
 package eu.stamp_project.examples.dhell;
 
-import static org.junit.Assert.*;
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 
 import eu.stamp_project.examples.dhell.HelloApp;
 
-public class HelloAppTest
+public class JUnit5_HelloAppTest
 {
     // **********************************************************************
     // public
     // **********************************************************************
-    @BeforeClass
+    @BeforeAll
     public static void runOnceAtTheBeginning()
     {
          System.out.println("dhell.HelloAppTest: @BeforeClass - runOnceAtTheBeginning");
     }
 
-    @AfterClass
+    @AfterAll
     public static void runOnceAtTheEnd()
     {
          System.out.println("dhell.HelloAppTest: @AfterClass - runOnceAtTheEnd");
@@ -177,8 +178,7 @@ public class HelloAppTest
         String MyTracesName = "hello_run4.traces";
     	myApp = new HelloApp(myCount, MyTracesName);
         
-        
-    	assertTrue("App should return some info", myApp.getMyAppSystemInformation(true)!= null);
+    	assertTrue( myApp.getMyAppSystemInformation(true)!= null, () ->"App should return some info");
     }
     
     @Test
@@ -191,8 +191,7 @@ public class HelloAppTest
         
     	myApp = new HelloApp(myCount, MyTracesName);
         
-        
-    	assertEquals("App should return detailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(true));
+    	assertEquals(expectedDetailedInfo, myApp.getMyAppSystemInformation(true), ()->"App should return detailed info");
     }
 
     // **********************************************************************
