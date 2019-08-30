@@ -9,8 +9,10 @@ import java.io.File;
 
 import eu.stamp_project.examples.dhell.HelloApp;
 
-public class JUnit5_HelloAppTest
-{
+public class JUnit5_HelloAppTest{
+    
+    private int sleep = 200;
+    
     // **********************************************************************
     // public
     // **********************************************************************
@@ -29,6 +31,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppDefault() throws Exception
     {
+        Thread.sleep(sleep);
         String myTracesName = "myHelloApp.traces";
         HelloApp myApp = null;
         File theFile = null;
@@ -46,6 +49,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppInt() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         int myCount = 8;
@@ -63,6 +67,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppString() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         String MyTracesName = "foo1.traces";
@@ -79,6 +84,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppIntString() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         int myCount = 8;
@@ -96,6 +102,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppRun1() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         MyStorage fileContent = null;
@@ -122,6 +129,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppRun2() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         MyStorage fileContent = null;
@@ -149,6 +157,7 @@ public class JUnit5_HelloAppTest
     @Test
     public void testHelloAppRun3() throws Exception
     {
+        Thread.sleep(sleep);
         HelloApp myApp = null;
         File theFile = null;
         MyStorage fileContent = null;
@@ -173,16 +182,18 @@ public class JUnit5_HelloAppTest
     
     @Test
     public void testHelloAppSomeInfoAreReturned() throws Exception {
+        Thread.sleep(sleep);
     	HelloApp myApp = null;
         int myCount = 22;
         String MyTracesName = "hello_run4.traces";
     	myApp = new HelloApp(myCount, MyTracesName);
         
-    	assertTrue( myApp.getMyAppSystemInformation(true)!= null, () ->"App should return some info");
+    	assertTrue( myApp.getMyAppSystemInformation(true)!= null, "App should return some info");
     }
     
     @Test
     public void testHelloAppDetailedInfoAreReturned() throws Exception {
+        Thread.sleep(sleep);
     	HelloApp myApp = null;
         int myCount = 22;
         String MyTracesName = "hello_run5.traces";
@@ -191,7 +202,7 @@ public class JUnit5_HelloAppTest
         
     	myApp = new HelloApp(myCount, MyTracesName);
         
-    	assertEquals(expectedDetailedInfo, myApp.getMyAppSystemInformation(true), ()->"App should return detailed info");
+    	assertEquals(expectedDetailedInfo, myApp.getMyAppSystemInformation(true), "App should return detailed info");
     }
 
     // **********************************************************************

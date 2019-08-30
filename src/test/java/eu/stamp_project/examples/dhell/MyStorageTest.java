@@ -10,12 +10,14 @@ import eu.stamp_project.examples.dhell.MyStorage;
 @org.junit.runner.RunWith(com.googlecode.junittoolbox.ParallelRunner.class)
 public class MyStorageTest
 {
+    private int sleep = 200;
     // **********************************************************************
     // public
     // **********************************************************************
     @Test
     public void testMyStorageDefault() throws Exception
     {
+        Thread.sleep(sleep);
         MyStorage myFile = null;
         String myFileName = "my_storage.txt";
         File theFile = null;
@@ -34,6 +36,7 @@ public class MyStorageTest
     @Test
     public void testMyStorageString() throws Exception
     {
+        Thread.sleep(sleep);
         MyStorage myFile = null;
         String myFileName = "foofoo.txt";
         File theFile = null;
@@ -51,6 +54,7 @@ public class MyStorageTest
     @Test
     public void testAddData() throws Exception
     {
+        Thread.sleep(sleep);
         MyStorage myFile = null;
         String myFileName = "foo.txt";
         ArrayList<String> myData = new ArrayList<String>();
@@ -76,6 +80,7 @@ public class MyStorageTest
     @Test
     public void testSaveReadData() throws Exception
     {
+        Thread.sleep(sleep);
         MyStorage myFile = null;
         MyStorage mySecondFile = null;
         String myFileName = "bar.txt";
