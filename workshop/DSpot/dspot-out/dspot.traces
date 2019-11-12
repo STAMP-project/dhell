@@ -1,0 +1,22 @@
+[INFO] 2019-11-08 12:32:18 EntryPoint - Global coverage has been computed 414 / 1048
+[INFO] 2019-11-08 12:32:18 Main - Amplification succeed.
+[INFO] 2019-11-08 12:32:18 Main - Elapsed time 665829 ms
+[INFO] 2019-11-08 12:32:18 TestSelectorReport - 
+Initial instruction coverage: 530 / 1048
+50.57%
+Amplification results with 399 amplified tests.
+Amplified instruction coverage: 680 / 1048
+64.89%
+
+Initial instruction coverage: 335 / 1048
+31.97%
+Amplification results with 236 amplified tests.
+Amplified instruction coverage: 414 / 1048
+39.50%
+
+[INFO] 2019-11-08 12:32:18 TestSelectorReport - Writing report in dspot-out/report.txt
+[INFO] 2019-11-08 12:32:18 ErrorReport - DSpot amplified your test suite without errors. (no errors report will be outputted)
+[INFO] 2019-11-08 12:32:18 OutputReport - The amplification ends up with 635 amplified test methods over 2 test classes.
+[INFO] 2019-11-08 12:32:18 OutputReport - Print eu.stamp_project.examples.dhell.AmplHelloAppTest.java with 399 amplified test cases in dspot-out/
+[INFO] 2019-11-08 12:32:18 OutputReport - Print eu.stamp_project.examples.dhell.AmplMyStorageTest.java with 236 amplified test cases in dspot-out/
+

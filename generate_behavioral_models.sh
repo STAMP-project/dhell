@@ -1,0 +1,1 @@
+java -d64 -Xmx10000m -jar workshop/Botsing/botsing-model-generation-1.0.7.jar -project_cp "$(cat workshop/Botsing/classpath.txt)" -project_prefix "eu.stamp_project.examples.dhell" -out_dir "workshop/Botsing/models"

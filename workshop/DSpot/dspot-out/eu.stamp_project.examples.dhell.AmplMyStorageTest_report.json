@@ -1,0 +1,11 @@
+{
+  "name": "eu.stamp_project.examples.dhell.AmplMyStorageTest",
+  "nbOriginalTestCases": 4,
+  "initialInstructionCovered": 335,
+  "initialInstructionTotal": 1048,
+  "percentageinitialInstructionCovered": 31.96564885496183,
+  "amplifiedInstructionCovered": 414,
+  "amplifiedInstructionTotal": 1048,
+  "percentageamplifiedInstructionCovered": 39.50381679389313,
+  "testCases": []
+}

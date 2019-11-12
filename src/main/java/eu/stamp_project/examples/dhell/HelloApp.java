@@ -2,11 +2,16 @@ package eu.stamp_project.examples.dhell;
 
 // **********************************************************************
 import eu.stamp_project.examples.dhell.MyStorage;
+
+import java.io.IOException;
+
 import eu.stamp_project.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class HelloApp
 {
+	
+	HelloAppData myData;
     // **********************************************************************
     // public
     // **********************************************************************
@@ -15,96 +20,64 @@ public class HelloApp
     // **********************************************************************
     public HelloApp()
     {
-        String methodName = "HelloApp";
-        MyLogger.Instance.entering(getClass().getName(), methodName);
-
-        MyPrintCount = 1;
-        MyTraces = null;
-        MyTracesName = "myHelloApp.traces";
-        ShouldPrintOnStdout = true;
-        MyStorage.deleteFile(MyTracesName);
-
-        MyLogger.Instance.info("MyPrintCount = " + Integer.toString(MyPrintCount)
-            + " - MyTracesName = " + MyTracesName);
-
-        MyLogger.Instance.exiting(getClass().getName(), methodName);
+    	this("HelloApp", 1, "myHelloApp.traces");
     }
 
     // **********************************************************************
     public HelloApp(int printCount)
     {
-        String methodName = "HelloApp_int";
-        MyLogger.Instance.entering(getClass().getName(), methodName);
-
-        MyPrintCount = printCount;
-        MyTraces = null;
-        MyTracesName = "myHelloApp.traces";
-        ShouldPrintOnStdout = true;
-        MyStorage.deleteFile(MyTracesName);
-
-        MyLogger.Instance.info("MyPrintCount = " + Integer.toString(MyPrintCount)
-            + " - MyTracesName = " + MyTracesName);
-
-        MyLogger.Instance.exiting(getClass().getName(), methodName);
+        this("HelloApp_int", printCount, "myHelloApp.traces");
     }
 
     // **********************************************************************
     public HelloApp(String tracesName)
     {
-        String methodName = "HelloApp_String";
-        MyLogger.Instance.entering(getClass().getName(), methodName);
-
-        MyPrintCount = 1;
-        MyTraces = null;
-        MyTracesName = tracesName;
-        ShouldPrintOnStdout = true;
-        MyStorage.deleteFile(MyTracesName);
-
-        MyLogger.Instance.info("MyPrintCount = " + Integer.toString(MyPrintCount)
-            + " - MyTracesName = " + MyTracesName);
-
-        MyLogger.Instance.exiting(getClass().getName(), methodName);
+        this ("HelloApp_String", 1, tracesName);
     }
 
     // **********************************************************************
     public HelloApp(int printCount, String tracesName)
     {
-        String methodName = "HelloApp_int_String";
+    	this ("HelloApp_int_String", printCount, tracesName);
+    }
+
+    public HelloApp(String methodName, int printCount, String tracesName)
+    {
         MyLogger.Instance.entering(getClass().getName(), methodName);
+        myData = new HelloAppData();
+        myData.setMyPrintCount(printCount); 
+        myData.setMyTraces(null);
+        myData.setMyTracesName(tracesName);
+        myData.setShouldPrintOnStdout(true);
+        MyStorage.deleteFile(myData.getMyTracesName());
 
-        MyPrintCount = printCount;
-        MyTraces = null;
-        MyTracesName = tracesName;
-        ShouldPrintOnStdout = true;
-        MyStorage.deleteFile(MyTracesName);
-
-        MyLogger.Instance.info("MyPrintCount = " + Integer.toString(MyPrintCount)
-            + " - MyTracesName = " + MyTracesName);
+        MyLogger.Instance.info("MyPrintCount = " + Integer.toString(myData.getMyPrintCount())
+            + " - MyTracesName = " + myData.getMyTracesName());
 
         MyLogger.Instance.exiting(getClass().getName(), methodName);
     }
-
+    
     // **********************************************************************
-    public void run()
+    public void run() throws IOException
     {
         String methodName = "run";
         MyLogger.Instance.entering(getClass().getName(), methodName);
 
         String indent = "-";
-        String countString = Integer.toString(MyPrintCount);
+        String countString = Integer.toString(myData.getMyPrintCount());
 
-        if (MyTracesName.length() > 0)
+        if (myData.getMyTracesName().length() > 0)
         {
-            MyTraces = new MyStorage(MyTracesName);
+        	myData.setMyTraces(new MyStorage(myData.getMyTracesName()));
         }
         else
         {
-            MyTraces = new MyStorage();
+        	myData.setMyTraces(new MyStorage());
         }
 
-        MyTraces.addData(countString);
+        myData.getMyTraces().addData(countString);
 
-        for (int i = 1; i < MyPrintCount; i++)
+        for (int i = 1; i < myData.getMyPrintCount(); i++)
         {
             indent = indent + "-";
         }
@@ -113,7 +86,7 @@ public class HelloApp
         myPrint(indent + " Hello World !");
         myPrint(indent);
 
-        MyTraces.saveData();
+        myData.getMyTraces().saveData();
 
         MyLogger.Instance.exiting(getClass().getName(), methodName);
     }
@@ -143,25 +116,25 @@ public class HelloApp
     // **********************************************************************
     public int getMyPrintCount()
     {
-        return(MyPrintCount);
+        return(myData.getMyPrintCount());
     }
 
     // **********************************************************************
     public String getMyTracesName()
     {
-        return(MyTracesName);
+        return(myData.getMyTracesName());
     }
 
     // **********************************************************************
     public boolean getShouldPrintOnStdout()
     {
-        return(ShouldPrintOnStdout);
+        return(myData.isShouldPrintOnStdout());
     }
 
     // **********
     public void setShouldPrintOnStdout(boolean value)
     {
-        ShouldPrintOnStdout = value;
+    	myData.setShouldPrintOnStdout(value);
     }
 
     // **********************************************************************
@@ -172,7 +145,7 @@ public class HelloApp
     {
         int theCard = 0;
 
-        if (MyTraces != null)
+        if (myData.getMyTraces() != null)
         {
             theCard = 1;
         }
@@ -183,7 +156,7 @@ public class HelloApp
     // **********
     public MyStorage getMyTraces()
     {
-        return(MyTraces);
+        return(myData.getMyTraces());
     }
 
     // **********************************************************************
@@ -198,7 +171,7 @@ public class HelloApp
         {
             System.out.println(message);
         }
-        MyTraces.addData(message);
+        myData.getMyTraces().addData(message);
     }
     
     public String getMyAppSystemInformation(boolean detailed) {
@@ -209,13 +182,4 @@ public class HelloApp
     	}
     	return myAppGeneralInfo;
     }
-
-    // **********************************************************************
-    // private
-    // **********************************************************************
-    // ******** attributes
-    private int MyPrintCount;
-    private String MyTracesName;
-    private MyStorage MyTraces;
-    private boolean ShouldPrintOnStdout;
 }

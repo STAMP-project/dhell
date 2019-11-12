@@ -1,0 +1,11 @@
+{
+  "name": "eu.stamp_project.examples.dhell.AmplHelloAppTest",
+  "nbOriginalTestCases": 11,
+  "initialInstructionCovered": 530,
+  "initialInstructionTotal": 1048,
+  "percentageinitialInstructionCovered": 50.57251908396947,
+  "amplifiedInstructionCovered": 680,
+  "amplifiedInstructionTotal": 1048,
+  "percentageamplifiedInstructionCovered": 64.8854961832061,
+  "testCases": []
+}

@@ -1,8 +1,9 @@
 package eu.stamp_project.examples.dhell;
 
+import java.io.IOException;
+
 // **********************************************************************
 import eu.stamp_project.examples.dhell.HelloApp;
-import eu.stamp_project.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyGod
@@ -13,7 +14,7 @@ public class MyGod
     // ******** methods
 
     // **********************************************************************
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         int indentCount = 1;
         int argIndex = 0;

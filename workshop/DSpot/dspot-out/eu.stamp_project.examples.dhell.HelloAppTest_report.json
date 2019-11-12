@@ -1,0 +1,26 @@
+{
+  "nbMutantKilledOriginally": 8,
+  "name": "eu.stamp_project.examples.dhell.HelloAppTest",
+  "nbOriginalTestCases": 9,
+  "nbNewMutantKilled": 2,
+  "testCases": [
+    {
+      "name": "HelloAppTest",
+      "nbAssertionAdded": 18,
+      "nbInputAdded": 23699,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "true",
+          "lineNumber": 132,
+          "locationMethod": "isEqual"
+        },
+        {
+          "ID": "1",
+          "lineNumber": 124,
+          "locationMethod": "returnSomething"
+        }
+      ]
+    }
+  ]
+}

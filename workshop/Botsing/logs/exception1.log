@@ -1,0 +1,8 @@
+java.lang.NullPointerException
+	at java.io.File.<init>(File.java:277)
+	at eu.stamp_project.examples.dhell.MyStorageHelper.deleteFile(MyStorageHelper.java:70)
+	at eu.stamp_project.examples.dhell.MyStorage.deleteFile(MyStorage.java:29)
+	at eu.stamp_project.examples.dhell.HelloApp.<init>(HelloApp.java:52)
+	at eu.stamp_project.examples.dhell.HelloApp.<init>(HelloApp.java:41)
+	at eu.stamp_project.examples.dhell.HelloAppTest.testHelloAppIntString(HelloAppTest.java:84)
+

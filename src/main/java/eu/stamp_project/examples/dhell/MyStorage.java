@@ -13,6 +13,8 @@ import eu.stamp_project.examples.dhell.MyLogger;
 // **********************************************************************
 public class MyStorage
 {
+	
+	MyStorageHelper helper = new MyStorageHelper();
     // **********************************************************************
     // public
     // **********************************************************************
@@ -24,17 +26,12 @@ public class MyStorage
         String methodName = "deleteFile";
         MyLogger.Instance.entering("MyStorage", methodName);
 
-        File theFile = null;
-
-        // delete file if it already exists
-        theFile = new File(fileName);
-        if (theFile.exists())
-        {
-            theFile.delete();
-        }
+        MyStorageHelper.deleteFile(fileName);
 
         MyLogger.Instance.exiting("MyStorage", methodName);
     }
+
+	
 
     // **********************************************************************
     public MyStorage()
@@ -61,70 +58,28 @@ public class MyStorage
     }
 
     // **********************************************************************
-    public void readData()
+    public void readData() throws IOException
     {
         String methodName = "readData";
         MyLogger.Instance.entering(getClass().getName(), methodName);
 
-        BufferedReader myBuffer = null;
-        FileReader myFile = null;
-        String currentLine;
-
-        try
-        {
-            myFile = new FileReader(FileName);
-            myBuffer = new BufferedReader(myFile);
-            while ((currentLine = myBuffer.readLine()) != null)
-            {
-                addData(currentLine);
-            }
-        }
-        catch(IOException e)
-        {
-            System.out.println("Error: cannot read " + FileName);
-        }
-
-        try
-        {
-            if (myBuffer != null)
-            {
-                myBuffer.close();
-            }
-            if (myFile != null)
-            {
-                myFile.close();
-            }
-        }
-        catch(IOException e)
-        {
-            System.out.println("Error: closing " + FileName);
-        }
+        helper.readData(getFileName(), this);
 
         MyLogger.Instance.exiting(getClass().getName(), methodName);
     }
 
+	
     // **********************************************************************
-    public void saveData()
+    public void saveData() throws IOException
     {
         String methodName = "saveData";
         MyLogger.Instance.entering(getClass().getName(), methodName);
 
-        try
-        {
-            PrintStream writer = new PrintStream(new File(FileName));
-            for (int i = 0; i < getDataSize(); i++)
-            {
-                writer.println(getData(i));
-            }
-            writer.close();
-        }
-        catch(IOException e)
-        {
-            System.out.println("Error: cannot write into " + FileName);
-        }
+        helper.saveData(getFileName(), this);
 
         MyLogger.Instance.exiting(getClass().getName(), methodName);
     }
+
 
     // **********************************************************************
     public boolean isEqual(MyStorage anotherStorage)
@@ -132,15 +87,7 @@ public class MyStorage
         String methodName = "isEqual";
         MyLogger.Instance.entering(getClass().getName(), methodName);
 
-        boolean areEqual = (getDataSize() == anotherStorage.getDataSize());
-
-        for (int i = 0; i < getDataSize() && areEqual; i++)
-        {
-            if (! (getData(i).equals(anotherStorage.getData(i))))
-            {
-                areEqual = false;
-            } 
-        }
+        boolean areEqual = helper.isEqual(this, anotherStorage);
 
         MyLogger.Instance.exiting(getClass().getName(), methodName);
         return(areEqual);
@@ -188,15 +135,10 @@ public class MyStorage
     }
 
     // **********************************************************************
-    public void addData(String aData)
-    {
-        MyLogger.Instance.finest("IN : DataSize = " + Integer.toString(getDataSize())
-            + " - aData = " + aData);
 
-        MyData.add(aData);
-
-        MyLogger.Instance.finest("OUT: DataSize = " + Integer.toString(getDataSize()));
-    }
+    public void addData(String aData) {
+		MyData.add(aData);
+	}
 
     // **********************************************************************
     public void delData(String aData)
@@ -224,4 +166,5 @@ public class MyStorage
     // ******** attributes
     private String FileName;
     private ArrayList<String> MyData;
+
 }

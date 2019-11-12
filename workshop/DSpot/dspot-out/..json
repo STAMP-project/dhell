@@ -1,0 +1,17 @@
+{
+  "classTimes": [
+    {
+      "fullQualifiedName": "eu.stamp_project.examples.dhell.HelloAppTest",
+      "timeInMs": 5498727
+    },
+    {
+      "fullQualifiedName": "eu.stamp_project.examples.dhell.AmplHelloAppTest",
+      "timeInMs": 557181
+    },
+    {
+      "fullQualifiedName": "eu.stamp_project.examples.dhell.AmplMyStorageTest",
+      "timeInMs": 98031
+    }
+  ],
+  "projectName": "."
+}

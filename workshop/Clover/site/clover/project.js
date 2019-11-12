@@ -1,0 +1,2 @@
+processClover (  {"children":["eu/stamp_project/examples/dhell/"],"name":"Clover database Fri Nov 8 2019 12:47:00 CET","stats":{"AvgMethodComplexity":1.9555556,"Complexity":88,"ErroneousTests":0,"FailingTests":0,"FilteredElements":0,"PassingTests":0,"PcErroneousTests":-1,"PcFailingTests":-1,"PcPassingTests":-1,"TestExecutionTime":0,"Tests":0,"TotalChildren":1,"TotalPercentageCovered":50.4298,"TotalStatements":234,"UncoveredElements":173},"title":"hello_app 1.2.1"}
+ ); 
