@@ -1,6 +1,8 @@
 package eu.stamp_project.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import java.io.File;
 import java.util.*;
@@ -114,5 +116,17 @@ public class MyStorageTest
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+    }
+    
+    //WORKSHOP
+    
+    @Ignore @Test (expected=NullPointerException.class)
+    public void testReproduceException2() {
+        
+    }
+    
+    @Ignore @Test (expected=NullPointerException.class)
+    public void testReproduceException3() {
+        
     }
 }

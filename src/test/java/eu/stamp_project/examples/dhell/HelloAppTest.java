@@ -2,6 +2,7 @@ package eu.stamp_project.examples.dhell;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.AfterClass;
 import org.junit.Test;
 import java.io.File;
@@ -191,9 +192,12 @@ public class HelloAppTest
         
     	assertEquals("App should return deatailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(true));
     }
-
-    // **********************************************************************
-    // private
-    // **********************************************************************
-    // ******** attributes
+    
+    //WORKSHOP
+    
+    @Ignore @Test (expected=NullPointerException.class)
+    public void testReproduceException1() {
+        
+    }
+   
 }
