@@ -109,13 +109,18 @@ public class MyStorageTest
         // read data in the 2nd file
         mySecondFile = new MyStorage(myFileName);
         assertEquals(true, theFile.exists());
+        
+        // modification create 3 file
+        MyStorage otherFile = new MyStorage("Hello");
 
         mySecondFile.readData();
         assertEquals(myData.size(), mySecondFile.getDataSize());
         assertEquals(true, mySecondFile.dataAreEqual(myData));
+        assertEquals(false, otherFile.dataAreEqual(myData));
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+        assertEquals(false,myFile.isEqual(otherFile));
     }
     
     //WORKSHOP
