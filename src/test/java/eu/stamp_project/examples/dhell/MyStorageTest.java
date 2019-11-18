@@ -1,6 +1,7 @@
 package eu.stamp_project.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -119,6 +120,103 @@ public class MyStorageTest
         
         assertEquals(false, myFile.isEqual(mySecondFile));
     }
+    
+    
+    @Test
+    public void testDelData() throws Exception
+    {
+        MyStorage myFile = null;
+        MyStorage mySecondFile = null;
+        String myFileName = "bar.txt";
+        File theFile = null;
+        ArrayList<String> myData = new ArrayList<String>();
+        
+        // file content
+        // 1st line
+        // a second line, longer than the first one
+        // 3rd line with something else: 2, 4, 8, 16
+        myData.add("1st line");
+        myData.add("a second line, longer than the first one");
+        myData.add("3rd line with something else: 2, 4, 8, 16");
+
+        // write data in the first file
+        myFile = new MyStorage(myFileName);
+        for (int i = 0; i < myData.size(); i++)
+        {
+            myFile.addData(myData.get(i));
+        }
+        assertEquals(myData.size(), myFile.getDataSize());
+        assertEquals(true, myFile.dataAreEqual(myData));
+
+        myFile.saveData();
+        theFile = new File(myFileName);
+        assertEquals(true, theFile.exists());
+
+        // read data in the 2nd file
+        mySecondFile = new MyStorage(myFileName);
+        assertEquals(true, theFile.exists());
+
+        mySecondFile.readData();
+        assertEquals(myData.size(), mySecondFile.getDataSize());
+        assertEquals(true, mySecondFile.dataAreEqual(myData));
+         
+        // compare content
+        assertEquals(true, myFile.isEqual(mySecondFile));
+        
+        myFile.delData(myData.get(0));
+        assertEquals(false, myFile.isEqual(mySecondFile));
+       
+    }
+    
+    
+ /*   @Test
+    public void dataAreEqualTest() throws Exception
+    {
+    	try {
+    		 MyStorage myFile = null;
+    	        MyStorage mySecondFile = null;
+    	        String myFileName = "bar.txt";
+    	        File theFile = null;
+    	        ArrayList<String> myData = new ArrayList<String>();
+    	        
+    	        // file content
+    	        // 1st line
+    	        // a second line, longer than the first one
+    	        // 3rd line with something else: 2, 4, 8, 16
+    	        myData.add("1st line");
+    	        myData.add("a second line, longer than the first one");
+    	        myData.add("3rd line with something else: 2, 4, 8, 16");
+
+    	        // write data in the first file
+    	        myFile = new MyStorage(myFileName);
+    	        for (int i = 0; i < myData.size(); i++)
+    	        {
+    	            myFile.addData(myData.get(i));
+    	        }
+    	        assertEquals(myData.size(), myFile.getDataSize());
+    	        assertEquals(true, myFile.dataAreEqual(myData));
+
+    	        myFile.saveData();
+    	        theFile = new File(myFileName);
+    	        assertEquals(true, theFile.exists());
+
+    	        // read data in the 2nd file
+    	        mySecondFile = new MyStorage(myFileName);
+    	        assertEquals(true, theFile.exists());
+
+    	        mySecondFile.readData();
+    	        assertEquals(myData.size(), mySecondFile.getDataSize());
+    	        assertEquals(true, mySecondFile.dataAreEqual(myData));
+    	         
+    	        // compare content
+    	        assertEquals(true, myFile.isEqual(mySecondFile));
+    	}
+    	catch (final RuntimeException e) {
+			// TODO: handle exception
+    		assert.fail();
+		}
+       
+    }*/
     
     //WORKSHOP
     
