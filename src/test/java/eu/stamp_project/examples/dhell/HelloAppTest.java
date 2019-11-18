@@ -199,9 +199,11 @@ public class HelloAppTest
     
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test ()
     public void testReproduceException1() {
-        
+    	MyStorage myFile = null;
+        String myFileName = "@";
+        MyStorage.deleteFile(myFileName);
     }
    
 }
