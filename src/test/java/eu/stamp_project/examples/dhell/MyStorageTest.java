@@ -110,7 +110,7 @@ public class MyStorageTest
         mySecondFile = new MyStorage(myFileName);
         assertEquals(true, theFile.exists());
         
-        // modification create 3 file
+        // Introduced in Descartes task 1
         MyStorage otherFile = new MyStorage("Hello");
 
         mySecondFile.readData();
@@ -123,7 +123,7 @@ public class MyStorageTest
         dataList.add("Hello");
         dataList.add("Goodbye");
         
-        assertEquals(false,mySecondFile.dataAreEqual(dataList));
+        assertEquals(false,mySecondFile.dataAreEqual(dataList)); 
         
         dataList = new ArrayList<String>();
         int n = mySecondFile.getDataSize();
@@ -138,6 +138,11 @@ public class MyStorageTest
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
         assertEquals(false,myFile.isEqual(otherFile));
+        
+        // DSPOT experiment
+        //MyStorageHelper helper = new MyStorageHelper();
+        //helper.readData("Hello",mySecondFile);
+        //org.junit.Assert.fail("java.io.FileNotFoundException: ");
     }
     
     //WORKSHOP

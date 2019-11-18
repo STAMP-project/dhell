@@ -24,6 +24,7 @@ public class MyStorageHelper {
         }
         catch(IOException e)
         {
+        	e.printStackTrace();
             System.out.println("Error: cannot read " + filename);
             throw e;
         }
