@@ -71,7 +71,7 @@ public class MyStorageTest
         }
 
         assertEquals(myData.size(), myFile.getDataSize());
-        assertEquals(true, myFile.dataAreEqual(myData));
+        assertEquals(false, myFile.dataAreEqual(myData));
     }
 
     @Test
@@ -113,9 +113,11 @@ public class MyStorageTest
         mySecondFile.readData();
         assertEquals(myData.size(), mySecondFile.getDataSize());
         assertEquals(true, mySecondFile.dataAreEqual(myData));
-
+        
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+        
+        assertEquals(false, myFile.isEqual(mySecondFile));
     }
     
     //WORKSHOP
