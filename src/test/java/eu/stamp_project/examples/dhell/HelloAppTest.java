@@ -46,12 +46,16 @@ public class HelloAppTest
     public void testHelloAppInt() throws Exception
     {
         HelloApp myApp = null;
+        HelloApp myApp1 = null;
         File theFile = null;
         int myCount = 8;
 
+        String tracesName = "aux";
+        
         myApp = new HelloApp(myCount);
         assertEquals(myCount, myApp.getMyPrintCount());
-        assertEquals("myHelloApp.traces", myApp.getMyTracesName());
+        myApp1 = new HelloApp(myCount,tracesName);
+        assertEquals("myHelloApp.traces", myApp1.getMyTracesName());
         assertEquals(0, myApp.cardMyTraces());
 
         theFile = new File(myApp.getMyTracesName());
