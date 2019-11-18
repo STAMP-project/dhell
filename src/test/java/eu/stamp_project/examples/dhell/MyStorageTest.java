@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Ignore;
 import org.junit.Test;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import eu.stamp_project.examples.dhell.MyStorage;
@@ -125,7 +126,7 @@ public class MyStorageTest
         
     }
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Ignore @Test (expected=FileNotFoundException.class)
     public void testReproduceException3() {
         
     }
