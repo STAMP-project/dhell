@@ -117,6 +117,23 @@ public class MyStorageTest
         assertEquals(myData.size(), mySecondFile.getDataSize());
         assertEquals(true, mySecondFile.dataAreEqual(myData));
         assertEquals(false, otherFile.dataAreEqual(myData));
+        
+        // arraylist for data are equal
+        ArrayList<String> dataList = new ArrayList<String>(2);
+        dataList.add("Hello");
+        dataList.add("Goodbye");
+        
+        assertEquals(false,mySecondFile.dataAreEqual(dataList));
+        
+        dataList = new ArrayList<String>();
+        int n = mySecondFile.getDataSize();
+        for(int i = 0; i < n; i++) {
+        	dataList.add(mySecondFile.getData(i));
+        }
+        //dataList.add(mySecondFile.getData(0));
+        
+        
+        assertEquals(true,mySecondFile.dataAreEqual(dataList));
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));

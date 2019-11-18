@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="eu.stamp_project.examples.dhell.HelloAppTest" time="0.179" errors="0" skipped="1">
+<testsuite tests="10" failures="0" name="eu.stamp_project.examples.dhell.HelloAppTest" time="0.171" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\A683946\Ricardo\Stamp\runtime-New_configuration\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf12775629223419393308.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\A683946\Ricardo\Stamp\runtime-New_configuration\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf13521692590794744597.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-12.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jdk-12.0.2/bin/server;C:/Program Files/Java/jdk-12.0.2/bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk-12.0.2\bin;C:\Program Files\Git\cmd;C:\Program Files\maven\apache-maven-3.6.1\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\PuTTY\;C:\Users\A683946\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Eclipse\Commiters\eclipse;;."/>
     <property name="jdk.debug" value="release"/>
@@ -42,7 +42,7 @@
     <property name="java.class.path" value="C:\Program Files\Eclipse\Commiters\eclipse\plugins\org.eclipse.m2e.maven.runtime_1.12.0.20190529-1915\jars\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="12"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Pdescartes-plugin-profile-18-11-19-11-10-01 -B clean package org.pitest:pitest-maven:mutationCoverage -DmutationEngine=descartes -f prueba1_pom.xml"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Pdescartes-plugin-profile-18-11-19-11-38-37 -B clean package org.pitest:pitest-maven:mutationCoverage -DmutationEngine=descartes -f prueba1_pom.xml"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-12.0.2"/>
     <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -60,18 +60,18 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testReproduceException1" time="0.072">
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testReproduceException1" time="0.084">
     <skipped/>
     <system-out>dhell.HelloAppTest: @BeforeClass - runOnceAtTheBeginning
 </system-out>
   </testcase>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppSomeInfoAreReturned" time="0.073"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun1" time="0.01"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun2" time="0.005"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun3" time="0.009"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppDetailedInfoAreReturned" time="0.003"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppDefault" time="0.004"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppSomeInfoAreReturned" time="0.062"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun1" time="0.006"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun2" time="0.006"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppRun3" time="0.006"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppDetailedInfoAreReturned" time="0.002"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppDefault" time="0.003"/>
   <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppIntString" time="0.001"/>
-  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppString" time="0.001"/>
+  <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppString" time="0"/>
   <testcase classname="eu.stamp_project.examples.dhell.HelloAppTest" name="testHelloAppInt" time="0.001"/>
 </testsuite>
