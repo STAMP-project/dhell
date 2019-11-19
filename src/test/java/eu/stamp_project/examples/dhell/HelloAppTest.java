@@ -169,6 +169,30 @@ public class HelloAppTest
     }
     
     @Test
+    public void testHelloAppRun4() throws Exception
+    {
+        HelloApp myApp = null;
+        MyStorage fileContent = null;
+        int myCount = 22;
+        String countString = Integer.toString(myCount);
+        String helloString = "---------------------- Hello World !";
+        String MyTracesName = "";
+        // String message;
+
+        myApp = new HelloApp(myCount, MyTracesName);
+        myApp.run();
+
+        // message = "#### TracesName = " + myApp.getMyTracesName();
+        // System.out.println(message);
+
+        fileContent = new MyStorage();
+        fileContent.readData();
+        assertEquals(true, fileContent.isEqual(myApp.getMyTraces()));
+        assertEquals(true, countString.equals(fileContent.getData(0)));
+        assertEquals(true, helloString.equals(fileContent.getData(2)));
+    }
+    
+    @Test
     public void testHelloAppSomeInfoAreReturned() throws Exception {
     	HelloApp myApp = null;
         int myCount = 22;
@@ -191,6 +215,18 @@ public class HelloAppTest
         
         
     	assertEquals("App should return deatailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(true));
+    }
+    
+    @Test
+    public void testHelloAppShouldPrint() throws Exception {
+    	HelloAppData myAppData = new HelloAppData();
+    	myAppData.setMyPrintCount(0); 
+    	myAppData.setMyTraces(null);
+    	myAppData.setMyTracesName("traces-name");
+    	myAppData.setShouldPrintOnStdout(false);
+ 
+        
+    	//assertEquals("", , );
     }
     
     //WORKSHOP
