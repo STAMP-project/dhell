@@ -75,6 +75,23 @@ public class HelloAppTest
     }
 
     @Test
+    public void testHelloAppStringGreaterThan1() throws Exception
+    {
+        HelloApp myApp = null;
+        File theFile = null;
+        String MyTracesName = "foo1.traces";
+
+        myApp = new HelloApp(MyTracesName);
+        myApp.run();
+        assertEquals(1, myApp.getMyPrintCount());
+        assertEquals(MyTracesName, myApp.getMyTracesName());
+        assertEquals(1, myApp.cardMyTraces());
+
+        theFile = new File(myApp.getMyTracesName());
+        assertEquals(true, theFile.exists());
+    }
+
+    @Test
     public void testHelloAppIntString() throws Exception
     {
         HelloApp myApp = null;
