@@ -87,6 +87,27 @@ public class HelloAppTest
         assertEquals(myCount, myApp.getMyPrintCount());
         assertEquals(MyTracesName, myApp.getMyTracesName());
         assertEquals(0, myApp.cardMyTraces());
+        assertTrue(myApp.getShouldPrintOnStdout());
+
+        theFile = new File(myApp.getMyTracesName());
+        assertEquals(false, theFile.exists());
+    }
+    @Test
+    public void testEmptyTracesName() throws Exception
+    {
+        HelloApp myApp = null;
+        File theFile = null;
+        int myCount = 0;
+        String MyTracesName = "";
+
+        myApp = new HelloApp(myCount, MyTracesName);
+        assertEquals(myCount, myApp.getMyPrintCount());
+        assertEquals(MyTracesName, myApp.getMyTracesName());
+        assertEquals(0, myApp.cardMyTraces());
+        myApp.setShouldPrintOnStdout(true);
+        assertTrue(myApp.getShouldPrintOnStdout());
+        myApp.setShouldPrintOnStdout(false);
+        assertFalse(myApp.getShouldPrintOnStdout());
 
         theFile = new File(myApp.getMyTracesName());
         assertEquals(false, theFile.exists());

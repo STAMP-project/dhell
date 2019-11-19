@@ -1,6 +1,7 @@
 package eu.stamp_project.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -73,6 +74,40 @@ public class MyStorageTest
 
         assertEquals(myData.size(), myFile.getDataSize());
         assertEquals(true, myFile.dataAreEqual(myData));
+    }
+    @Test
+    public void testDeleteData() throws Exception
+    {
+        MyStorage myFile = null;
+        String myFileName = "bar.txt";
+        File theFile = null;
+        ArrayList<String> myData = new ArrayList<String>();
+
+        MyStorage.deleteFile(myFileName);
+
+        // file content
+        // 1st line
+        // a second line, longer than the first one
+        // 3rd line with something else: 2, 4, 8, 16
+        myData.add("1st line");
+        myData.add("a second line, longer than the first one");
+        myData.add("3rd line with something else: 2, 4, 8, 16");
+
+        // write data in the first file
+        myFile = new MyStorage(myFileName);
+        for (int i = 0; i < myData.size(); i++)
+        {
+            myFile.addData(myData.get(i));
+        }
+        assertEquals(myData.size(), myFile.getDataSize());
+        assertEquals(true, myFile.dataAreEqual(myData));
+
+        myFile.saveData();
+        myFile.delData("a second line, longer than the first one");
+        //we delete one of the data files and check that the data is no longer the same
+        assertFalse(myFile.dataAreEqual(myData));
+        theFile = new File(myFileName);
+        assertEquals(true, theFile.exists());
     }
 
     @Test
