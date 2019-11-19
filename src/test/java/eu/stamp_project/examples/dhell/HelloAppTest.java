@@ -92,6 +92,22 @@ public class HelloAppTest
     }
 
     @Test
+    public void testHelloAppStringTracesName0() throws Exception
+    {
+        HelloApp myApp = null;
+        File theFile = null;
+        String MyTracesName = "";
+
+        myApp = new HelloApp(0, MyTracesName);
+        assertEquals(0, myApp.getMyPrintCount());
+        assertNotEquals("foo1.traces", myApp.getMyTracesName());
+
+        theFile = new File(myApp.getMyTracesName());
+        assertEquals(false, theFile.exists());
+        
+    }
+
+    @Test
     public void testHelloAppIntString() throws Exception
     {
         HelloApp myApp = null;
