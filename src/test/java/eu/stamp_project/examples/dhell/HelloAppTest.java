@@ -231,9 +231,15 @@ public class HelloAppTest
     
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test (expected=NullPointerException.class)
     public void testReproduceException1() {
-        
+        HelloApp myApp = null;
+        int myCount = 22;
+        String MyTracesName = null;
+
+        String expectedDetailedInfo = "My App Detailed Infos";
+
+        myApp = new HelloApp(myCount, MyTracesName);
     }
    
 }

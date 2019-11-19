@@ -226,13 +226,26 @@ public class MyStorageTest
     
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test (expected=NullPointerException.class)
     public void testReproduceException2() {
-        
+        MyStorage myFile = null;
+
+        // write data in the first file
+        myFile = new MyStorage();
+        myFile.deleteFile(null);
     }
     
-    @Ignore @Test (expected=FileNotFoundException.class)
+    @Test (expected=FileNotFoundException.class)
     public void testReproduceException3() {
-        
+        MyStorage myFile = null;
+        String myFileName = "";
+
+        // write data in the first file
+        myFile = new MyStorage(myFileName);
+        try {
+            myFile.saveData();
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }
