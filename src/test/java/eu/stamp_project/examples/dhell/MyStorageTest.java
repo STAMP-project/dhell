@@ -74,15 +74,40 @@ public class MyStorageTest
         assertEquals(myData.size(), myFile.getDataSize());
         assertEquals(true, myFile.dataAreEqual(myData));
     }
+    
+    @Test
+    public void testModifyData() throws Exception
+    {
+        MyStorage myFile = null;
+        String myFileName = "foo.txt";
+        ArrayList<String> myData = new ArrayList<String>();
+
+        // file content
+        // 1st line
+        // a second line, longer than the first one
+        myData.add("1st line");
+        myData.add("a second line, longer than the first one");
+
+        myFile = new MyStorage(myFileName);
+        for (int i = 0; i < myData.size(); i++)
+        {
+            myFile.addData(myData.get(i));
+        }
+        myData.remove(1);
+
+        assertEquals(false, myFile.dataAreEqual(myData));
+    }
 
     @Test
     public void testSaveReadData() throws Exception
     {
         MyStorage myFile = null;
         MyStorage mySecondFile = null;
+        MyStorage myThirdFile = null;
         String myFileName = "bar.txt";
         File theFile = null;
         ArrayList<String> myData = new ArrayList<String>();
+        ArrayList<String> myDifferentData = new ArrayList<String>();
 
         MyStorage.deleteFile(myFileName);
 
@@ -117,6 +142,14 @@ public class MyStorageTest
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+        
+        // read data in a 3rd file content
+        myDifferentData.add("a different 1st line");
+        myThirdFile = new MyStorage(myFileName);
+        myThirdFile.addData(myDifferentData.get(0));
+        
+        // compare different content
+        assertEquals(false, myThirdFile.dataAreEqual(myData));
     }
     
     //WORKSHOP
