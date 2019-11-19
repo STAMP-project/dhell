@@ -114,6 +114,20 @@ public class HelloAppTest
     }
 
     @Test
+    public void testPrintOnStodOut() throws Exception{
+        HelloApp myApp = null;
+        File theFile = null;
+        int myCount = 0;
+        String MyTracesName = "";
+
+        myApp = new HelloApp(myCount, MyTracesName);
+        myApp.setShouldPrintOnStdout(true);
+        assertTrue(myApp.getShouldPrintOnStdout());
+        myApp.setShouldPrintOnStdout(false);
+        assertFalse(myApp.getShouldPrintOnStdout());
+    }
+
+    @Test
     public void testHelloAppRun1() throws Exception
     {
         HelloApp myApp = null;
