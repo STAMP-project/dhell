@@ -246,6 +246,7 @@ public class HelloAppTest
     public void testReproduceException1() {
     	HelloApp myApp = new HelloApp(null);
     	myApp.getMyTraces();
+    	
     }
    
 }
