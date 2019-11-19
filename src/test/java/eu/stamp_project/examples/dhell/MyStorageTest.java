@@ -80,6 +80,7 @@ public class MyStorageTest
     {
         MyStorage myFile = null;
         MyStorage mySecondFile = null;
+        MyStorage myThirdFile = null;
         String myFileName = "bar.txt";
         File theFile = null;
         ArrayList<String> myData = new ArrayList<String>();
@@ -117,6 +118,26 @@ public class MyStorageTest
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+
+        //Add new data to mydata to check that dataAreEqual works as expected
+        myData.add("TestMutations");
+        assertEquals(false, mySecondFile.dataAreEqual(myData));
+
+        //Add a new file, different that the 2 previous ones.
+
+        // write data in the first file
+        myThirdFile = new MyStorage(myFileName);
+        for (int i = 0; i < myData.size(); i++)
+        {
+            myThirdFile.addData(myData.get(i));
+        }
+
+        assertEquals(myData.size(), myThirdFile.getDataSize());
+        assertEquals(true, myThirdFile.dataAreEqual(myData));
+
+        // compare content
+        assertEquals(false, myFile.isEqual(myThirdFile));
+
     }
     
     //WORKSHOP

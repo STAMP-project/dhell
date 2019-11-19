@@ -36,7 +36,8 @@ public class HelloAppTest
         assertEquals(1, myApp.getMyPrintCount());
         assertEquals("myHelloApp.traces", myApp.getMyTracesName());
         assertEquals(0, myApp.cardMyTraces());
-        assertTrue(myApp.returnSomething() > 0);
+        System.out.println(myApp.returnSomething());
+        assertEquals(7, (int) myApp.returnSomething());
 
         theFile = new File(myApp.getMyTracesName());
         assertEquals(false, theFile.exists());
