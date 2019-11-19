@@ -218,6 +218,25 @@ public class HelloAppTest
     }
     
     @Test
+    public void testHelloAppEmptyTracesName() throws Exception {
+    	HelloApp myApp = null;
+        String MyTracesName = "";
+        myApp.setShouldPrintOnStdout(false);
+        myApp = new HelloApp(MyTracesName);
+        	        
+    	assertEquals("Traces name should be empty", "", myApp.getMyTracesName());
+    }
+    
+    @Test
+    public void testHelloAppComputeUselessResult() throws Exception {
+    	HelloApp myApp1 = new HelloApp();
+    	HelloApp myApp2 = new HelloApp();
+        myApp1.computeMyUselessResult();	        
+    	assertEquals("My app doesn't change", myApp1.getMyAppSystemInformation(true), myApp2.getMyAppSystemInformation(true));
+    }
+    
+    
+    @Test
     public void testHelloAppShouldPrint() throws Exception {
     	HelloAppData myAppData = new HelloAppData();
     	myAppData.setMyPrintCount(0); 

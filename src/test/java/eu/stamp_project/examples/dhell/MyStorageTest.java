@@ -145,11 +145,36 @@ public class MyStorageTest
         
         // read data in a 3rd file content
         myDifferentData.add("a different 1st line");
+        myDifferentData.add("a different 2nd line");
         myThirdFile = new MyStorage(myFileName);
         myThirdFile.addData(myDifferentData.get(0));
+        myThirdFile.addData(myDifferentData.get(1));
         
         // compare different content
         assertEquals(false, myThirdFile.dataAreEqual(myData));
+    }
+    
+    @Test
+    public void testDelData() throws Exception
+    {
+        MyStorage myFile = null;
+        String myFileName = "foo.txt";
+        ArrayList<String> myData = new ArrayList<String>();
+
+        // file content
+        // 1st line
+        // a second line, longer than the first one
+        myData.add("1st line");
+        myData.add("a second line, longer than the first one");
+
+        myFile = new MyStorage(myFileName);
+        for (int i = 0; i < myData.size(); i++)
+        {
+            myFile.addData(myData.get(i));
+        }
+        myFile.delData("1st line");
+
+        assertEquals(true, myFile.dataAreEqual(myData));
     }
     
     //WORKSHOP
