@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 import eu.stamp_project.examples.dhell.MyStorage;
@@ -179,13 +180,22 @@ public class MyStorageTest
     
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test //(expected=NullPointerException.class)
     public void testReproduceException2() {
-        
+    	MyStorage.deleteFile(null);
     }
     
-    @Ignore @Test (expected=FileNotFoundException.class)
+    @Test //(expected=FileNotFoundException.class)
     public void testReproduceException3() {
-        
+    	MyStorage myFile = null;
+        String myFileName = "/";
+        ArrayList<String> myData = new ArrayList<String>();
+        myFile = new MyStorage(myFileName);
+        try {
+			myFile.saveData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

@@ -250,9 +250,9 @@ public class HelloAppTest
     
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test //(expected=NullPointerException.class)
     public void testReproduceException1() {
-        
+        new HelloApp(0, null);
     }
    
 }
