@@ -226,11 +226,26 @@ public class HelloAppTest
     	assertEquals("App should return deatailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(true));
     }
     
+    @Test
+    public void testHelloAppDetailedInfoAreReturnedFalse() throws Exception {
+    	HelloApp myApp = null;
+        int myCount = 22;
+        String MyTracesName = "hello_run3.traces";
+        
+        String expectedDetailedInfo = "My App General Infos";
+        
+    	myApp = new HelloApp(myCount, MyTracesName);
+        
+        
+    	assertEquals("App should return deatailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(false));
+    }
+    
     //WORKSHOP
     
-    @Ignore @Test (expected=NullPointerException.class)
+    @Test (expected=NullPointerException.class)
     public void testReproduceException1() {
-        
+    	HelloApp myApp = new HelloApp(null);
+    	myApp.getMyTraces();
     }
    
 }

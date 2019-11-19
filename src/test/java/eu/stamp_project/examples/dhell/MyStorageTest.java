@@ -106,6 +106,7 @@ public class MyStorageTest
         assertEquals(true, myFile.dataAreEqual(myData));
 
         myFile.saveData();
+        myFile.delData("1");
         theFile = new File(myFileName);
         assertEquals(true, theFile.exists());
 
@@ -119,6 +120,7 @@ public class MyStorageTest
 
         // compare content
         assertEquals(true, myFile.isEqual(mySecondFile));
+        
     }
     
     @Test
@@ -189,38 +191,12 @@ public class MyStorageTest
     
     @Ignore @Test (expected=NullPointerException.class)
     public void testReproduceException2() {
-        
+    	MyStorage myFile = new MyStorage(null);
+    	myFile.getDataSize();
     }
     
     @Ignore @Test (expected=FileNotFoundException.class)
-    public void testReproduceException3() throws IOException {
-        MyStorage myFile = null;
-        String myFileName = "bar.txt";
-        File theFile = null;
-        ArrayList<String> myData = new ArrayList<String>();
-
-        MyStorage.deleteFile(myFileName);
-
-        // file content
-        // 1st line
-        // a second line, longer than the first one
-        // 3rd line with something else: 2, 4, 8, 16
-        myData.add("1st line");
-        myData.add("a second line, longer than the first one");
-        myData.add("3rd line with something else: 2, 4, 8, 16");
-
-        // write data in the first file
-        myFile = new MyStorage(myFileName);
-        for (int i = 0; i < myData.size(); i++)
-        {
-            myFile.addData(myData.get(i));
-        }
-        assertEquals(myData.size(), myFile.getDataSize());
-        assertEquals(true, myFile.dataAreEqual(myData));
-
-        myFile.saveData();
-        theFile = new File(myFileName);
-        assertEquals(true, theFile.exists());
+    public void testReproduceException3() {
         
     }
 }
