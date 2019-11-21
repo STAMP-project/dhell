@@ -31,6 +31,15 @@
           <mutationEngine>descartes</mutationEngine>
         </configuration>
       </plugin>
+         
+         <plugin>
+    <groupId>eu.stamp-project</groupId>
+    <artifactId>dspot-maven</artifactId>
+    <version>3.0.0</version>
+    <configuration>
+        <!-- your configuration --> 
+    </configuration>
+</plugin>
 
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
