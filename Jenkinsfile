@@ -19,7 +19,7 @@ pipeline {
       }
     }
     stage('Amplify') {
-        when {branch 'jenkins_develop'}
+        //when {branch 'jenkins_develop'}
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
