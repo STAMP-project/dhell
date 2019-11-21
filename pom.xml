@@ -32,12 +32,21 @@
         </configuration>
       </plugin>
          
-         <plugin>
-    <groupId>eu.stamp-project</groupId>
-    <artifactId>dspot-maven</artifactId>
-    <version>3.0.0</version>
-    
-</plugin>
+    <plugin>
+           <groupId>eu.stamp-project</groupId>
+           <artifactId>dspot-maven</artifactId>
+           <version>2.2.1</version>
+           <configuration>
+            <src>joram/mom/core/src/main/java</src>
+            <testSrc>joram/mom/core/src/test/java</testSrc>
+            <testCriterion>JacocoCoverageSelector</testCriterion>
+            <output-path>target/dspot/output</output-path>
+            <verbose>true</verbose>
+            <generate-new-test-class>true</generate-new-test-class>
+            <with-comment>true</with-comment>
+            <use-maven-to-exe-test>true</use-maven-to-exe-test>
+           </configuration>
+      </plugin>
 
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
