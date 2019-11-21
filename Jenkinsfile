@@ -22,7 +22,8 @@ pipeline {
         //when {branch 'jenkins_develop'}
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
-          sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
+          //sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
+          sh "mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dverbose -Diteration=4"
         }
         sh 'cp -rf target/dspot/output/eu src/test/java/'
         step([$class: 'DSpotReportCollector'])
